@@ -3,8 +3,8 @@ url <- "https://odk-central.swisstph.ch/v1
 /projects/17/forms/prev_v1.svc"
 
 form_id <- "prev_v1"
-un <- Sys.getenv("odk_un")
-pw <- Sys.getenv("odk_pw")
+un <- Sys.getenv("ODK_UN")
+pw <- Sys.getenv("ODK_PW")
 
 ruODK::ru_setup(
   svc = url,
