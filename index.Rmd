@@ -11,27 +11,37 @@ library(flexdashboard)
 source("scripts/data_download.R")
 ```
 
-Column {data-width=650}
------------------------------------------------------------------------
-
-### Chart A
-
-```{r}
-
-```
-
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Chart B
+### Last Submission Date {.value-box}
 
 ```{r}
-
+valueBox(value = max(clean$SubmissionDate),
+  caption = "Date of last submission",
+  icon = "fas fa-calendar",
+  color = "red")
 ```
 
-### Chart C
+### Last Interview Date {.value-box}
 
 ```{r}
-
+valueBox(value = max(clean$date),
+  caption = "Date of last interview",
+  icon = "fas fa-calendar",
+  color = "green")
 ```
+
+Column {data-width=700}
+-----------------------------------------------------------------------
+
+### Tabulation by Provinces
+
+```{r}
+clean %>% 
+  ggplot(aes(p_id, fill = p_id)) +
+  geom_bar() + 
+  theme_classic()
+```
+
 
